@@ -1,25 +1,10 @@
 ---
 name: catchup
-description: Understands recent changes in the project and update context accordingly. This is automatically triggered after `/clear` or when starting a new chat, to ensure CLAUDE has up-to-date context on the project status, recent decisions, and relevant Records.
-disable-model-invocation: false
-user-invocable: true
+description: Orients Claude after `/clear` or a new chat by reading recent git changes, loading relevant Records, and summarizing the current project state. Use at the start of every new session or after clearing context.
+disable-model-invocation: true
 ---
 
 ## Tasks
-
-Copy this checklist and check off items as you complete them:
-
-```
-Catchup Progress:
-- [ ] 1. Check project template version
-- [ ] 2. Read README.md
-- [ ] 3. Read changed files
-- [ ] 4. Load relevant Records
-- [ ] 5. Check Recent Decisions
-- [ ] 6. Read open private notes
-- [ ] 7. Load context skills
-- [ ] 8. Summary
-```
 
 1. **Check project template version**
    - Read first line of project CLAUDE.md → extract version from `<!-- project-template: N -->`
@@ -27,7 +12,7 @@ Catchup Progress:
    - Use the Read tool on `~/.claude/templates/CLAUDE.template.md` (expand `~` to absolute path) → extract version from first line
    - If file does not exist (Read returns error) → skip this step
    - If versions match → skip, continue to next task
-   - If versions differ → use the Read tool on `~/.claude/commands/migrate-project-template.md` (expand `~` to absolute path) → follow the migration steps inside
+   - If versions differ → use the Read tool on `~/.claude/skills/migrate-project-template/SKILL.md` (expand `~` to absolute path) → follow the migration steps inside
    - After migration completes → continue with step 2 (Read project README.md)
 
 2. **Read project README.md**
@@ -40,17 +25,16 @@ Catchup Progress:
    - Read relevant changed files
 
 4. **Load relevant Records**
-   - Check "## Current Status" and "## Future" tables in project CLAUDE.md
+   - Check Current Status and Future tables in project CLAUDE.md
    - If work is in progress or a next step references a Record → Read that Record
-     - Example: Status shows "OAuth2 | In Progress | [Record 019]" → Read `docs/records/019-oauth2-auth.md`
+   - Example: Status shows "OAuth2 | In Progress | [Record 019]" → Read `docs/records/019-oauth2-auth.md`
    - Also check for designs ready to implement or in progress:
-     - If `docs/records/` exists: `grep -l "^Designing\|^Designed\|^In Progress" docs/records/*.md`
-     - If directory doesn't exist: skip
+     - !`grep -l "^Designing\|^Designed\|^In Progress" docs/records/*.md`
    - If found: Load these Records (user may want to continue /design workflow or start implementing)
    - Only load Records relevant to current/next work, not all
 
 5. **Check Recent Decisions**
-   - Read the "## Recent Decisions" table in project CLAUDE.md
+   - Read the "Recent Decisions" table in project CLAUDE.md
    - Note any decisions relevant to current work
    - These are small decisions with reasoning that survived the last `/clear`
 

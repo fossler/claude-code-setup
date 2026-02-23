@@ -18,11 +18,11 @@ A modular, minimal setup for Claude Code with clear workflow and persistent memo
 
 | Story | Status | Notes |
 |-------|--------|-------|
-| — | — | No active stories |
+| Commands → Skills migration | In Progress | Branch `mkz_mod`; recovering + reviewing migrated skills |
 
 **Legend:** Open | In Progress | Done
 
-**Next Step:** Pick next item from Future table or start new feature
+**Next Step:** Continue reviewing migrated skills — next: `skills/wrapup/`, `skills/delegate/`, etc.
 
 ### Future
 
@@ -37,6 +37,7 @@ A modular, minimal setup for Claude Code with clear workflow and persistent memo
 
 | Date | Decision | Why |
 |------|----------|-----|
+| 2026-02-23 | Omit `user-invocable: true` — it is the default; only set `user-invocable: false` to override | Explicit `true` is redundant noise in every skill frontmatter |
 | 2026-02-23 | SKILL.md descriptions must be third person ("Manages", not "Manage") | Injected into system prompt; wrong POV causes discovery problems per official docs |
 | 2026-02-23 | Correct spelling is `user-invocable` (not `user-invokable`) | Confirmed from code.claude.com/docs/en/skills; IDE linter was wrong |
 | 2026-02-23 | jq temp writes use `tmpfile=$(mktemp)` pattern, not `> file.tmp` | `mktemp` avoids cwd pollution and concurrent-process conflicts |
@@ -154,8 +155,7 @@ claude-code-setup/
 ├── templates/
 ├── mcp/
 ├── commands/
-├── skills/                    # Coding standards + tool skills
-│   └── user-stories/          # INVEST stories, Given-When-Then AC
+├── skills/                    # Coding standards, tool skills, and workflow commands (migrating from commands/)
 ├── website/                   # Nextra documentation site
 │   ├── components/
 │   ├── pages/
