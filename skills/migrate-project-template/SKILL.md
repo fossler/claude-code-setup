@@ -1,6 +1,9 @@
-# Migrate Project Template
-
-Triggered by `/catchup` when it detects a version mismatch between the project CLAUDE.md and the installed template.
+---
+name: migrate-project-template
+description: "Triggered by `/catchup` when it detects a version mismatch between the project CLAUDE.md and the installed template."
+disable-model-invocation: true
+user-invocable: false
+---
 
 **Do NOT run this command directly.** It is invoked automatically by `/catchup`.
 

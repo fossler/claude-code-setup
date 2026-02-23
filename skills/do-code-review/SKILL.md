@@ -1,13 +1,18 @@
-# Do Review: Code Review via code-review-ai
-
-Trigger a code review on your recent changes using the code-review-ai plugin. This is Step 3 in the Development Flow — review before committing.
+---
+name: do-code-review
+description: "Code Review via code-review-ai: Trigger a code review on your recent changes using the code-review-ai plugin. This is Step 3 in the Development Flow — review before committing."
+disable-model-invocation: false
+user-invocable: true
+context: fork
+argument-hint: [No Argument: Review all uncommitted changes] [HEAD~3..HEAD: Review a specific commit range] [--branch: Review current branch vs main] [--help] 
+---
 
 ## Usage
-
 ```
 /do-review                    # Review all uncommitted changes
 /do-review HEAD~3..HEAD       # Review a specific commit range
 /do-review --branch           # Review current branch vs main
+/do-review --help             # Show "## Usage" as a help 
 ```
 
 ## Tasks

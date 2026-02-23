@@ -1,18 +1,21 @@
-# Todo: Quick Capture for Backlog
-
-Quick capture tool for the Future table. For structured planning, use `/design`.
-
-```
-/todo = CAPTURE (quick backlog entry)
-/design = PLAN (structured design with Record)
-```
+---
+name: todo
+description: Quick capture tool for the "## Future" table in CLAUDE.md. For structured planning, use `/design`.
+disable-model-invocation: true
+user-invocable: true
+argument-hint: [Your-todo] [--help]
+---
 
 ## Usage
+
+/todo = CAPTURE (quick backlog entry) \
+/design = PLAN (structured design with Record)
 
 ```
 /todo                          # List all todos
 /todo Fix typo in README       # Add simple todo
 /todo Add notification system  # Complex → hint to use /design
+/todo --help                   # Show "## Usage" as a help 
 ```
 
 ## Tasks
@@ -20,7 +23,7 @@ Quick capture tool for the Future table. For structured planning, use `/design`.
 ### Prerequisites
 
 - If no project CLAUDE.md found: Tell user to run `/init-project` first
-- If no `### Future` section exists: Create it with standard header:
+- If no `### Future` section exists: Create it in CLAUDE.md with standard header:
   ```markdown
   ### Future
 
@@ -35,7 +38,7 @@ Quick capture tool for the Future table. For structured planning, use `/design`.
 3. Display current todos in table format
 4. If no todos: "No open todos."
 
-### With arguments: Add todo
+### With arguments: Add todo (expect for the argument "help")
 
 1. Read project CLAUDE.md
 2. Find the `### Future` section and its table

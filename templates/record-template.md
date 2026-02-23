@@ -1,3 +1,5 @@
+[used for files created in docs/records/ by commands/wrapup.md]: #
+
 # Record {NNN}: {Title}
 
 **Status:** Accepted | Proposed | Deprecated | Superseded

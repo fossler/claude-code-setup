@@ -1,15 +1,17 @@
-# Design: Structured Feature Design
-
-A structured way to plan complex features before implementing. Works through: Problem → Options → Solution → Stories → Finalize.
-
-The result is a Record (markdown file) that documents design decisions and breaks work into implementable stories.
+---
+name: design-feature
+description: "Structured Feature Design: A structured way to plan complex features before implementing. Works through: Problem → Options → Solution → Stories → Finalize. The result is a Record (markdown file) that documents design decisions and breaks work into implementable stories."
+disable-model-invocation: true
+user-invocable: true
+argument-hint: [New feature name] [--continue] [--review] [--help] 
+---
 
 ## Usage
-
 ```
 /design "Feature name"     # Start new design
 /design --continue         # Resume incomplete design
 /design --review           # Get feedback on current design (requires code-review-ai)
+/design --help             # Show "## Usage" as a help 
 ```
 
 ## When to Use /design vs /todo

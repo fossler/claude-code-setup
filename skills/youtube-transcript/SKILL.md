@@ -2,6 +2,8 @@
 name: youtube-transcript
 description: Download YouTube video transcripts with automatic frame extraction for visual references. Use when analyzing YouTube videos, tutorials, or conference talks.
 type: command
+disable-model-invocation: true
+argument-hint: "[youtube-url]"
 ---
 
 # YouTube Transcript Skill

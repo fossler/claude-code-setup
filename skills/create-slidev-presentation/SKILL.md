@@ -4,6 +4,8 @@ description: This skill should be used when asked to create or edit Slidev (sli.
 type: command
 source: https://github.com/AJBcoding/claude-skill-eval
 author: AJBcoding
+disable-model-invocation: true
+argument-hint: "[topic or description]"
 ---
 
 # Slidev

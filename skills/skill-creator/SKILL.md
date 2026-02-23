@@ -3,6 +3,7 @@ name: skill-creator
 description: This skill guides users through creating custom skills for claude-code-setup. Use when users want to create a new command or context skill.
 type: command
 source: Inspired by https://github.com/AJBcoding/claude-skill-eval
+disable-model-invocation: true
 ---
 
 # Skill Creator

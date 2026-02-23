@@ -1,17 +1,20 @@
-# Delegate: Independent Teammate for Parallel Work
-
-Spawn a teammate to work on a separate task independently. You continue your own work and get notified when the teammate finishes.
-
-Works for any independent task: coding, research, data analysis, information gathering, documentation, etc.
+---
+name: delegate
+description: "Delegate: Independent Teammate for Parallel Work. Spawn a teammate to work on a separate task independently. You continue your own work and get notified when the teammate finishes. Works for any independent task: coding, research, data analysis, information gathering, documentation, etc."
+disable-model-invocation: false
+user-invocable: true
+context: fork
+argument-hint: [What to delegate][--help]
+---
 
 ## Usage
-
 ```
 /delegate "write unit tests for the auth module"
 /delegate "research how other CLIs handle plugin systems, summarize findings"
 /delegate "analyze the last 10 Milan matches and summarize their performance"
 /delegate "summarize key findings from the 5 most cited papers on topic X"
 /delegate "compare pricing models of top 5 SaaS competitors"
+/delegate --help                                                                   # Show "## Usage" as a help 
 ```
 
 ## Tasks

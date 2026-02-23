@@ -1,12 +1,15 @@
-# Wrapup: Document and Restart
-
-Wrap up the session before `/clear`. Document the current status for the next session.
+---
+name: wrapup
+description: "wrap up the session before `/clear`. Document the current status for the next session."
+disable-model-invocation: true
+user-invocable: true
+---
 
 ## Tasks
 
 1. **Update CLAUDE.md**
-   - Update "Current Status" table (story status)
-   - Update "Next Step" with clear next action
+   - Update "## Current Status" table (story status)
+   - Update "## Next Step" with clear next action
 
 2. **Archive Done items**
    - Remove rows with status "Done" from the Current Status table
@@ -22,7 +25,7 @@ Wrap up the session before `/clear`. Document the current status for the next se
 
 4. **Create Record (if needed)**
    - Was a decision, design, or significant feature documented this session?
-   - If yes: Create Record in `docs/records/`
+   - If yes: Create Record in `docs/records/` use `templates/record-template.md`
    - Reference in Current Status or Future table if actively relevant
 
 5. **Check: Development, Files, Architecture sections**

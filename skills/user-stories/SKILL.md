@@ -3,6 +3,7 @@ name: user-stories
 description: Write INVEST-compliant user stories with Given-When-Then acceptance criteria. Use when writing user stories, creating acceptance criteria, or during /design Step 4.
 type: command
 source: Adapted from https://github.com/alirezarezvani/claude-skills/tree/main/product-team/agile-product-owner by alirezarezvani (MIT License)
+argument-hint: "[optional context or persona]"
 ---
 
 # User Stories
