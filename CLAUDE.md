@@ -37,6 +37,9 @@ A modular, minimal setup for Claude Code with clear workflow and persistent memo
 
 | Date | Decision | Why |
 |------|----------|-----|
+| 2026-02-23 | SKILL.md descriptions must be third person ("Manages", not "Manage") | Injected into system prompt; wrong POV causes discovery problems per official docs |
+| 2026-02-23 | Correct spelling is `user-invocable` (not `user-invokable`) | Confirmed from code.claude.com/docs/en/skills; IDE linter was wrong |
+| 2026-02-23 | jq temp writes use `tmpfile=$(mktemp)` pattern, not `> file.tmp` | `mktemp` avoids cwd pollution and concurrent-process conflicts |
 | 2026-02-11 | Replaced team-setup.mdx with customizing.mdx | All custom module topics (skills, commands, scripts, MCP) belong in one page; team-setup was redundant; Solo vs Team already in init-project |
 
 ---
