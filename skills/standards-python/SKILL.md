@@ -1,7 +1,6 @@
 ---
 name: standards-python
 description: This skill provides Python coding standards and is automatically loaded for Python projects. It includes naming conventions, best practices, and recommended tooling.
-type: context
 applies_to: [python, fastapi, django, flask, pytest, pydantic, sqlalchemy, celery, poetry, asyncio, aiohttp, httpx]
 file_extensions: [".py"]
 ---

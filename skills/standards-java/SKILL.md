@@ -1,7 +1,6 @@
 ---
 name: standards-java
 description: Java coding standards for enterprise applications. Includes naming conventions, modern Java features, design patterns, and recommended tooling.
-type: context
 applies_to: [java, maven, gradle, junit, spring, jakarta, quarkus, mockito, testcontainers, hibernate, jpa]
 file_extensions: [".java"]
 ---

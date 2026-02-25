@@ -18,11 +18,10 @@ A modular, minimal setup for Claude Code with clear workflow and persistent memo
 
 | Story | Status | Notes |
 |-------|--------|-------|
-| Commands → Skills migration | In Progress | Branch `mkz_mod`; reviewed 10 workflow skills, fixes committed (c3db1c7) |
 
 **Legend:** Open | In Progress | Done
 
-**Next Step:** Review remaining skills — `catchup`, `wrapup`, `add-custom-repo`, `claude-code-setup`, `create-slidev-presentation`, then `standards-*` context skills
+**Next Step:** Bump content version (`templates/VERSION`), update `CHANGELOG.md`, run tests, then open PR from `mkz_mod` → `main`
 
 ### Future
 

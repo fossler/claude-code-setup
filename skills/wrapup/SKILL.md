@@ -2,7 +2,6 @@
 name: wrapup
 description: "wraps up the session before `/clear`. Document the current status for the next session."
 disable-model-invocation: true
-user-invocable: true
 ---
 
 ## Tasks

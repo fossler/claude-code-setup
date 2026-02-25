@@ -3,7 +3,7 @@ name: add-custom-repo
 description: Adds a custom module repository (company or personal) to claude-code-setup by cloning a git URL into ~/.claude/custom. Use when setting up a company or team module repo, or when prompted to run /add-custom-repo.
 disable-model-invocation: true
 user-invocable: true
-argument-hint: [git-url]
+argument-hint: "[git-url]"
 ---
 
 ## Usage

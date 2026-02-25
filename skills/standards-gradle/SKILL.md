@@ -1,7 +1,6 @@
 ---
 name: standards-gradle
 description: Gradle build tool standards focusing on Kotlin DSL. Covers project configuration, dependency management, and custom plugin/task development with Gradle 9 LTS.
-type: context
 applies_to: [gradle]
 file_extensions: [".gradle.kts", ".gradle"]
 ---
