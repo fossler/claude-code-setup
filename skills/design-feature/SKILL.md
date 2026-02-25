@@ -1,6 +1,6 @@
 ---
 name: design-feature
-description: "Structured Feature Design: A structured way to plan complex features before implementing. Works through: Problem → Options → Solution → Stories → Finalize. The result is a Record (markdown file) that documents design decisions and breaks work into implementable stories."
+description: "Structured Feature Design: Provides a structured way to plan complex features before implementing. Works through: Problem → Options → Solution → Stories → Finalize. The result is a Record (markdown file) that documents design decisions and breaks work into implementable stories."
 disable-model-invocation: true
 user-invocable: true
 argument-hint: [New feature name] [--continue] [--review] [--help] 
@@ -8,15 +8,15 @@ argument-hint: [New feature name] [--continue] [--review] [--help]
 
 ## Usage
 ```
-/design "Feature name"     # Start new design
-/design --continue         # Resume incomplete design
-/design --review           # Get feedback on current design (requires code-review-ai)
-/design --help             # Show "## Usage" as a help 
+/design-feature "Feature name"     # Start new design
+/design-feature --continue         # Resume incomplete design
+/design-feature --review           # Get feedback on current design (requires code-review-ai)
+/design-feature --help             # Show "## Usage" as a help 
 ```
 
-## When to Use /design vs /todo
+## When to Use /design-feature vs /todo
 
-| Use /design when... | Use /todo when... |
+| Use /design-feature when... | Use /todo when... |
 |---------------------|-------------------|
 | Feature has multiple parts | Just need a reminder |
 | Unsure how to implement | Quick idea for later |
@@ -47,14 +47,14 @@ argument-hint: [New feature name] [--continue] [--review] [--help]
 1. Find incomplete designs (Records with Status: "Designing")
 2. If multiple found: Show list, ask "Which design to continue?"
 3. If single found: Show state summary, resume from current step
-4. If none: "No incomplete design found. Start new with /design 'feature name'"
+4. If none: "No incomplete design found. Start new with /design-feature 'feature name'"
 
 See "Resume Design Workflow" section below for details.
 
 **--review flag:**
 1. Find current design (active session or incomplete Record)
 2. If multiple incomplete designs: Ask "Which design to review?" with list
-3. If no design found: "No design to review. Start with /design 'feature name'"
+3. If no design found: "No design to review. Start with /design-feature 'feature name'"
 4. If code-review-ai plugin not installed: "Install code-review-ai plugin for design reviews: /claude-code-setup → External Plugins"
 5. If plugin installed: Invoke review agent (see Review Agent section below)
 6. Show feedback to user (do not store in Record)
@@ -64,14 +64,14 @@ See "Resume Design Workflow" section below for details.
 
 ## Review Agent Integration
 
-When `/design --review` is invoked, use the `code-review-ai:architect-review` agent.
+When `/design-feature --review` is invoked, use the `code-review-ai:architect-review` agent.
 
 ### Finding the Design to Review
 
 1. If in active design session: Review current Record
 2. If multiple incomplete designs exist: Ask user which one to review
 3. If single incomplete design: Review that Record
-4. If no design found: "No design to review. Start with `/design 'feature name'`"
+4. If no design found: "No design to review. Start with `/design-feature 'feature name'`"
 
 ### Determine Current Step
 
@@ -128,11 +128,11 @@ Next: Step [N+1] ([Next Step Name])
 
 Ready to continue?
 [Yes] → Continue to Step [N+1]
-[No]  → Save and exit (resume with `/design --continue`)
+[No]  → Save and exit (resume with `/design-feature --continue`)
 ```
 
 **If Yes:** Resume with the next step question (e.g., "Let's define the solution...")
-**If No:** Confirm save: "Design saved as docs/records/[NNN]-[slug].md. Resume anytime with `/design --continue`"
+**If No:** Confirm save: "Design saved as docs/records/[NNN]-[slug].md. Resume anytime with `/design-feature --continue`"
 
 ### Error Handling
 
@@ -365,7 +365,7 @@ When resuming, determine current step by checking which sections exist in the Re
 
 ## Resume Design Workflow
 
-When `/design --continue` or `/design` (without args) detects incomplete designs:
+When `/design-feature --continue` or `/design-feature` (without args) detects incomplete designs:
 
 ### Finding Incomplete Designs
 
@@ -420,7 +420,7 @@ When resuming, use the same questions as the original workflow:
 
 ### No Arguments Behavior
 
-When user runs `/design` without arguments:
+When user runs `/design-feature` without arguments:
 
 1. Check for incomplete designs
 2. If found: Same flow as `--continue` (show state, offer to resume)
@@ -474,8 +474,8 @@ Overwrite with new design? [Yes / No]
 
 ### /todo
 - /todo = quick capture (Future table)
-- /design = structured planning (Record with Stories)
-- If user runs /todo with something complex: hint to use /design
+- /design-feature = structured planning (Record with Stories)
+- If user runs /todo with something complex: hint to use /design-feature
 
 ---
 
@@ -484,7 +484,7 @@ Overwrite with new design? [Yes / No]
 ### Starting a New Design
 
 ```
-User: /design "Add user notifications"
+User: /design-feature "Add user notifications"
 
 Claude: Let's design: Add user notifications
 
@@ -505,7 +505,7 @@ Let's consider options. What approaches have you thought about?
 ### Resuming After /clear
 
 ```
-User: /design --continue
+User: /design-feature --continue
 
 Claude: Found incomplete design: "Add user notifications" (Record 031)
         Currently at: Step 3 (Solution)
@@ -517,7 +517,7 @@ Claude: Found incomplete design: "Add user notifications" (Record 031)
 ### Quick Design (Obvious Approach)
 
 ```
-User: /design "Fix pagination in user list"
+User: /design-feature "Fix pagination in user list"
 
 Claude: Let's design: Fix pagination in user list
 

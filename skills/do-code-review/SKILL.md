@@ -1,6 +1,6 @@
 ---
 name: do-code-review
-description: "Code Review via code-review-ai: Trigger a code review on your recent changes using the code-review-ai plugin. This is Step 3 in the Development Flow — review before committing."
+description: "Code Review via code-review-ai: Triggers a code review on your recent changes using the code-review-ai plugin. This is Step 3 in the Development Flow — review before committing."
 disable-model-invocation: false
 user-invocable: true
 context: fork
@@ -9,10 +9,10 @@ argument-hint: [No Argument: Review all uncommitted changes] [HEAD~3..HEAD: Revi
 
 ## Usage
 ```
-/do-review                    # Review all uncommitted changes
-/do-review HEAD~3..HEAD       # Review a specific commit range
-/do-review --branch           # Review current branch vs main
-/do-review --help             # Show "## Usage" as a help 
+/do-code-review                    # Review all uncommitted changes
+/do-code-review HEAD~3..HEAD       # Review a specific commit range
+/do-code-review --branch           # Review current branch vs main
+/do-code-review --help             # Show "## Usage" as a help 
 ```
 
 ## Tasks
@@ -21,7 +21,7 @@ argument-hint: [No Argument: Review all uncommitted changes] [HEAD~3..HEAD: Revi
 
 **Unrecognized argument** (not a commit range or `--branch`):
 ```
-Usage: /do-review [HEAD~N..HEAD | --branch]
+Usage: /do-code-review [HEAD~N..HEAD | --branch]
 ```
 Stop here. Do not proceed.
 
@@ -29,9 +29,9 @@ Based on arguments:
 
 | Invocation | Scope | Git command |
 |-----------|-------|-------------|
-| `/do-review` (no args) | All uncommitted changes | `git diff HEAD` |
-| `/do-review HEAD~3..HEAD` | Specific commit range | `git diff HEAD~3..HEAD` |
-| `/do-review --branch` | Current branch vs main | `git diff main...HEAD` |
+| `/do-code-review` (no args) | All uncommitted changes | `git diff HEAD` |
+| `/do-code-review HEAD~3..HEAD` | Specific commit range | `git diff HEAD~3..HEAD` |
+| `/do-code-review --branch` | Current branch vs main | `git diff main...HEAD` |
 
 Run the appropriate git diff command.
 
@@ -102,7 +102,7 @@ Stop here.
 **If the review agent fails for other reasons:**
 ```
 Review could not be completed: [error]
-You can retry with /do-review or request a manual review.
+You can retry with /do-code-review or request a manual review.
 ```
 Stop here.
 
@@ -128,7 +128,7 @@ After incorporating feedback:
 
 ```
 Changes applied. You can:
-- Run /do-review again to verify
+- Run /do-code-review again to verify
 - Commit your changes
 - Continue implementing
 ```
@@ -150,7 +150,7 @@ Changes applied. You can:
 ### Review before committing
 
 ```
-User: /do-review
+User: /do-code-review
 
 Claude: Reviewing uncommitted changes (4 files, ~120 lines)...
 
@@ -178,13 +178,13 @@ Claude: Applied all 3 suggestions. Changes:
 - Replaced nested loop with dict lookup in process_items()
 - Renamed getData → get_data
 
-Run /do-review again to verify, or commit your changes.
+Run /do-code-review again to verify, or commit your changes.
 ```
 
 ### Review a branch before PR
 
 ```
-User: /do-review --branch
+User: /do-code-review --branch
 
 Claude: Reviewing current branch vs main (12 files, ~340 lines across 5 commits)...
 
@@ -197,7 +197,7 @@ Review findings:
 ### No changes to review
 
 ```
-User: /do-review
+User: /do-code-review
 
 Claude: Nothing to review. No changes detected.
 ```
@@ -205,7 +205,7 @@ Claude: Nothing to review. No changes detected.
 ### Plugin not installed
 
 ```
-User: /do-review
+User: /do-code-review
 
 Claude: code-review-ai plugin is not installed. This command requires it.
 

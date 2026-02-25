@@ -1,10 +1,10 @@
 ---
 name: delegate
-description: "Delegate: Independent Teammate for Parallel Work. Spawn a teammate to work on a separate task independently. You continue your own work and get notified when the teammate finishes. Works for any independent task: coding, research, data analysis, information gathering, documentation, etc."
+description: "Delegate: Independent Teammate for Parallel Work. Spawns a teammate to work on a separate task independently. You continue your own work and get notified when the teammate finishes. Works for any independent task: coding, research, data analysis, information gathering, documentation, etc."
 disable-model-invocation: false
 user-invocable: true
 context: fork
-argument-hint: [What to delegate][--help]
+argument-hint: "[What to delegate][--help]"
 ---
 
 ## Usage

@@ -1,6 +1,6 @@
 ---
 name: custom-init-project
-description: "Init Project: Initialize a new project with CLAUDE.md and folder structure."
+description: "Init Project: Initializes a new project with CLAUDE.md and folder structure. Use when setting up a new project."
 disable-model-invocation: true
 user-invocable: true
 ---

@@ -1,6 +1,6 @@
 ---
 name: todo
-description: Quick capture tool for the "## Future" table in CLAUDE.md. For structured planning, use `/design`.
+description: "Captures quick todos in the Future table of project CLAUDE.md. For structured planning, use /design-feature skill."
 disable-model-invocation: true
 user-invocable: true
 argument-hint: [Your-todo] [--help]
@@ -9,12 +9,12 @@ argument-hint: [Your-todo] [--help]
 ## Usage
 
 /todo = CAPTURE (quick backlog entry) \
-/design = PLAN (structured design with Record)
+/design-feature = PLAN (structured design with Record)
 
 ```
 /todo                          # List all todos
 /todo Fix typo in README       # Add simple todo
-/todo Add notification system  # Complex → hint to use /design
+/todo Add notification system  # Complex → hint to use /design-feature
 /todo --help                   # Show "## Usage" as a help 
 ```
 
@@ -38,7 +38,7 @@ argument-hint: [Your-todo] [--help]
 3. Display current todos in table format
 4. If no todos: "No open todos."
 
-### With arguments: Add todo (expect for the argument "help")
+### With arguments: Add todo (except for the argument "help")
 
 1. Read project CLAUDE.md
 2. Find the `### Future` section and its table
@@ -51,7 +51,7 @@ argument-hint: [Your-todo] [--help]
    - Single file change
    - Clear solution, no design needed
 
-   **Complex** (hint to use /design):
+   **Complex** (hint to use /design-feature):
    - Feature with multiple parts
    - Needs spec or design decisions
    - Architecture decision
@@ -67,19 +67,19 @@ argument-hint: [Your-todo] [--help]
    ```
    This looks like it needs proper design (multiple parts, architecture decision).
 
-   Consider using: /design "Add notification system"
+   Consider using: /design-feature "Add notification system"
 
    Or add as simple reminder anyway? [Yes / No]
    ```
    - If user says Yes: Add to Future table as reminder
-   - If user says No: Suggest running /design
+   - If user says No: Suggest running /design-feature
 
 7. Confirm what was added
 
 ## Complexity Indicators
 
-| Indicator | Simple | → Use /design |
-|-----------|--------|---------------|
+| Indicator | Simple | → Use /design-feature |
+|-----------|--------|----------------------|
 | One-liner fix | ✓ | |
 | Single file change | ✓ | |
 | Clear solution | ✓ | |
@@ -104,9 +104,9 @@ argument-hint: [Your-todo] [--help]
 - When work begins: Move to Current Status table manually
 - `/wrapup` updates Current Status at session end
 
-## /todo vs /design
+## /todo vs /design-feature
 
-| Aspect | /todo | /design |
+| Aspect | /todo | /design-feature |
 |--------|-------|---------|
 | Purpose | Quick capture | Structured planning |
 | Output | Future table row | Record with Stories |
@@ -123,12 +123,12 @@ User: /todo Fix typo in README header
 User: /todo Add OAuth2 authentication
 → This looks like it needs proper design (architecture decision, multiple parts).
 
-  Consider using: /design "Add OAuth2 authentication"
+  Consider using: /design-feature "Add OAuth2 authentication"
 
   Or add as simple reminder anyway? [Yes / No]
 
 User: No
-→ Run: /design "Add OAuth2 authentication"
+→ Run: /design-feature "Add OAuth2 authentication"
 
 User: /todo
 → Open todos:
