@@ -21,7 +21,7 @@ A modular, minimal setup for Claude Code with clear workflow and persistent memo
 
 **Legend:** Open | In Progress | Done
 
-**Next Step:** Bump content version (`templates/VERSION`), update `CHANGELOG.md`, run tests, then open PR from `mkz_mod` → `main`
+**Next Step:** Run tests (`./tests/test.sh`), then open PR from `mkz_mod` → `main`
 
 ### Future
 
@@ -42,6 +42,7 @@ A modular, minimal setup for Claude Code with clear workflow and persistent memo
 | 2026-02-25 | `argument-hint` values must be quoted strings in YAML | Unquoted brackets are parsed as YAML arrays/keys; linter reports "must be a string" |
 | 2026-02-25 | `type: command/context` is not a Claude Code frontmatter field | Non-standard; use `disable-model-invocation` and `user-invocable` to control invocation |
 | 2026-02-23 | jq temp writes use `tmpfile=$(mktemp)` pattern, not `> file.tmp` | `mktemp` avoids cwd pollution and concurrent-process conflicts |
+| 2026-02-25 | Template version check extracted to `scripts/check-template-version.sh` rather than inline skill steps | Deterministic version comparison belongs in code, not AI instructions; scripts are testable, reliable, and don't consume context |
 | 2026-02-11 | Replaced team-setup.mdx with customizing.mdx | All custom module topics (skills, commands, scripts, MCP) belong in one page; team-setup was redundant; Solo vs Team already in init-project |
 
 ---

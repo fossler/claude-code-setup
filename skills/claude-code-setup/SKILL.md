@@ -198,6 +198,16 @@ repo=$(jq -r --arg m "<marketplace>" '.marketplaces[$m].repo' "$temp/external-pl
 
 Chain: marketplace add (idempotent) → plugin install → tracking update.
 
+
+### Check project template version
+Migration may be needed if the project template has been updated since the last session. This ensures CLAUDE.md is up-to-date and compatible with current skills.
+
+   - Run: !`bash "scripts/check-template-version.sh"`
+   - Exit 0 → continue
+   - Exit 1 → invoke the `/migrate-project-template` skill, then continue
+   - Exit 2 → no CLAUDE.md found, skip
+
+
 ### After execution
 
 Show summary of completed actions.

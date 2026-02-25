@@ -1,11 +1,11 @@
 ---
 name: migrate-project-template
-description: "Migrates project CLAUDE.md to the current template version, preserving user content. Invoked by /catchup when a version mismatch is detected."
+description: "Migrates project CLAUDE.md to the current template version, preserving user content. Invoked by `/claude-code-setup` when a version mismatch is detected."
 disable-model-invocation: true
-user-invocable: false
+user-invocable: true
 ---
 
-**Do NOT run this command directly.** It is invoked automatically by `/catchup`.
+**Do NOT run this command directly.** It is invoked automatically by `/claude-code-setup`.
 
 ## Prerequisites
 
