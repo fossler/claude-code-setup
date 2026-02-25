@@ -9,9 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Content Versions
 
-- **v55**: `/catchup` template version check extracted to bash script
-  - New `skills/catchup/scripts/check-template-version.sh` automates Step 1 of catchup (version comparison, mismatch detection, migration trigger)
-  - `/catchup` Step 1 replaced with a single script call; exit code 1 triggers `/migrate-project-template` automatically
+- **v55**: Template version check script + skill cleanups
+  - New `skills/claude-code-setup/scripts/check-template-version.sh`: bash script for project template version comparison (exit 0 = match, 1 = mismatch → trigger `/migrate-project-template`, 2 = no CLAUDE.md)
+  - `/claude-code-setup` skill: added template version check step using the new script
+  - `/catchup` skill: streamlined to 3 steps — removed manual template check, README reading, Recent Decisions, open notes, and context skills loading
+  - `youtube-transcript` skill: removed non-standard `type: command` frontmatter field
 - **v54**: Custom command overrides, extends & script deployment ([Guide](https://b33eep.github.io/claude-code-setup/guides/customizing))
   - Custom repos can now ship commands that override or extend base commands (e.g., `/catchup` with team-specific steps)
   - Custom repos can ship helper scripts that commands and skills reference
