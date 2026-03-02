@@ -28,7 +28,7 @@ argument-hint: [New feature name] [--continue] [--review] [--help]
 ### Prerequisites
 
 - If no project CLAUDE.md found: Tell user to run `/init-project` first
-- If no `docs/records/` directory: Create it
+- If no `docs/records/` directory: Create it: `mkdir -p docs/records`
 
 ### Handle Arguments
 

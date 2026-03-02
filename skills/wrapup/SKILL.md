@@ -11,12 +11,12 @@ disable-model-invocation: true
    - Update "## Next Step" with clear next action
 
 2. **Archive Done items**
-   - Remove rows with status "Done" from the Current Status table
+   - Remove rows with status "Done" from the "## Current Status" table
    - Their history is preserved in git commits and Records
    - The Status table shows current work only (Open, In Progress)
 
 3. **Prune Recent Decisions**
-   - Review the Recent Decisions table. Remove entries that are:
+   - Review the "## Recent Decisions" table. Remove entries that are:
      - Implementation details already captured in a Record
      - Superseded by later decisions
      - Only relevant to a feature that's now Done
@@ -25,7 +25,7 @@ disable-model-invocation: true
 4. **Create Record (if needed)**
    - Was a decision, design, or significant feature documented this session?
    - If yes: Create Record in `docs/records/` use `templates/record-template.md`
-   - Reference in Current Status or Future table if actively relevant
+   - Reference in "## Current Status" or "## Future" table if actively relevant
 
 5. **Check: Development, Files, Architecture sections**
    - Were commands added/changed this session? (new scripts, changed test commands, new build steps) → Update `## Development`

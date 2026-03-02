@@ -1,4 +1,4 @@
-[used for files created in docs/records/ by commands/wrapup.md]: #
+[used for files created in docs/records/ by skills/wrapup and probably skills/design-feature]: #
 
 # Record {NNN}: {Title}
 

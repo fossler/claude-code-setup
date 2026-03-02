@@ -7,18 +7,17 @@ allowed-tools: git, Bash(grep *), Bash(bash *), Read
 
 ## Tasks
 
-1. **Read changed files**
-   - Git history: !`git log -n 3` to see recent commits
-   - Open changes: !`git status` for uncommitted changes
+1. **Read recent changes**
+   - Git history to see recent commits: !`git log -n 3` 
+   - Open changes for uncommitted changes: !`git status`
 
 2. **Load relevant Records**
-   - Check Current Status and Future tables in project CLAUDE.md
+   - Check "## Current Status" and "## Future" tables in project CLAUDE.md
    - If work is in progress or a next step references a Record → Read that Record
      - Example: Status shows "OAuth2 | In Progress | [Record 019]" → Read `docs/records/019-oauth2-auth.md`
    - Also check for designs ready to implement or in progress:
      - !`grep -l "^Designing\|^Designed\|^In Progress" docs/records/*.md`
    - If found: Load these Records (user may want to continue /design workflow or start implementing)
-   - Only load Records relevant to current/next work, not all
 
 3. **Summary**
    - What was recently changed?

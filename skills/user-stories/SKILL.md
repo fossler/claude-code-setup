@@ -9,8 +9,6 @@ argument-hint: "[optional context or persona]"
 
 # User Stories
 
-Write high-quality, INVEST-compliant user stories with testable acceptance criteria.
-
 ---
 
 ## User Story Template
