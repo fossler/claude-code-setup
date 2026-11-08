@@ -13,17 +13,19 @@ Both options lose important context.
 
 ## The Solution
 
-1. **Monitor** context usage with ccstatusline
+1. **Monitor** context usage with the status line
 2. **Document** before clearing with /wrapup
 3. **Resume** after clearing with /catchup
 
-## ccstatusline
+## Status Line
 
-[ccstatusline](https://github.com/sirmalloc/ccstatusline) shows context usage in your status bar:
+The installer sets up a small status line script that shows context usage in your status bar:
 
 ```
-Ctx: 45% | Model: opus | Branch: main
+Opus 5.5 | you@laptop ~/projects/my-app (main) +12,-3 | Total: 2.4M | Ctx: 90k (45%)
 ```
+
+The `Ctx` value turns yellow at 60% and red at 80%.
 
 ### Reading the Status
 
@@ -36,17 +38,21 @@ Ctx: 45% | Model: opus | Branch: main
 
 ### Installation
 
-ccstatusline is installed automatically if you select it during setup.
+The status line is configured automatically if you accept it during setup. It needs only `jq` (installed by the installer) and `git` for the branch, no Node.js.
 
-To verify it's working, check your Claude Code settings:
+The script is installed to `~/.claude/statusline.sh`. To verify it's working, check your Claude Code settings:
 ```json
 {
   "statusLine": {
-    "enabled": true,
-    "command": ["npx", "-y", "ccstatusline"]
+    "type": "command",
+    "command": "/Users/you/.claude/statusline.sh"
   }
 }
 ```
+
+Upgrading from a version that used ccstatusline? `./install.sh --update` switches your status line to the script automatically. `~/.config/ccstatusline` is then no longer used and can be deleted.
+
+To customize the output, edit `~/.claude/statusline.sh`. Changes there are kept until the next `./install.sh --update`, which refreshes the script. To keep your own version, point `statusLine.command` at a different file.
 
 ## Document & Clear Workflow
 

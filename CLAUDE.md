@@ -36,6 +36,7 @@ A modular, minimal setup for Claude Code with clear workflow and persistent memo
 
 | Date | Decision | Why |
 |------|----------|-----|
+| 2026-11-07 | ccstatusline removed; bundled `statusline/statusline.sh` (bash + jq) replaces it, existing ccstatusline configs are migrated | No dependency on an external tool that has to be installed separately (Node.js/npx); testable in `./tests/`; custom statusLine configs stay untouched |
 | 2026-02-23 | Omit `user-invocable: true` — it is the default; only set `user-invocable: false` to override | Explicit `true` is redundant noise in every skill frontmatter |
 | 2026-02-23 | SKILL.md descriptions must be third person ("Manages", not "Manage") | Injected into system prompt; wrong POV causes discovery problems per official docs |
 | 2026-02-23 | Correct spelling is `user-invocable` (not `user-invokable`) | Confirmed from code.claude.com/docs/en/skills; IDE linter was wrong |
@@ -101,7 +102,7 @@ The installer is a modular Bash script. `install.sh` is the entry point, sourcin
 | `update.sh` | `--update` mode, content version comparison |
 | `uninstall.sh` | `--remove` mode |
 | `external-plugins.sh` | Third-party plugin installation (document-skills, code-review-ai) |
-| `statusline.sh` | ccstatusline configuration |
+| `statusline.sh` | Installs bundled `statusline/statusline.sh` to `~/.claude/` and sets `statusLine` in settings.json |
 | `hooks.sh` | Claude Code hooks setup |
 | `agent-teams.sh` | Agent Teams env var toggle in settings.json |
 | `setup-status.sh` | Discovery script for `/claude-code-setup` — outputs JSON status (standalone, NOT sourced by install.sh) |
@@ -157,6 +158,7 @@ claude-code-setup/
 ├── templates/
 ├── mcp/
 ├── commands/
+├── statusline/                # Status line script installed to ~/.claude/statusline.sh
 ├── skills/                    # Coding standards, tool skills, and workflow commands (migrating from commands/)
 ├── website/                   # Nextra documentation site
 │   ├── components/

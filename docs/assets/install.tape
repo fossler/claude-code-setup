@@ -38,7 +38,7 @@ Type "2 3 4"
 Enter
 Sleep 3s
 
-# Enable ccstatusline: Y
+# Enable status line: Y
 Type "Y"
 Enter
 Sleep 8s

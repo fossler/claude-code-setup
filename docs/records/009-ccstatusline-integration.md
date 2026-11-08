@@ -1,6 +1,6 @@
 # Record 009: ccstatusline Integration
 
-**Status:** Accepted
+**Status:** Superseded (content v56: ccstatusline removed to avoid an external tool dependency; replaced by the bundled `statusline/statusline.sh`, existing installs are migrated on `--update`, see CHANGELOG)
 **Date:** 2025-01-24
 
 ## Context

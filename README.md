@@ -16,7 +16,7 @@
 [![macOS](https://img.shields.io/badge/platform-macOS-blue.svg)](https://www.apple.com/macos/)
 [![Linux](https://img.shields.io/badge/platform-Linux-blue.svg)](https://www.linux.org/)
 [![WSL](https://img.shields.io/badge/platform-WSL-blue.svg)](https://docs.microsoft.com/en-us/windows/wsl/)
-[![Content v55](https://img.shields.io/badge/content-v55-blue.svg)](CHANGELOG.md)
+[![Content v56](https://img.shields.io/badge/content-v56-blue.svg)](CHANGELOG.md)
 
 **Persistent memory for Claude Code via Markdown files.**
 
@@ -140,7 +140,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.
 
 ## Acknowledgments
 
-- [ccstatusline](https://github.com/sirmalloc/ccstatusline) by sirmalloc
 - [claude-skill-eval](https://github.com/AJBcoding/claude-skill-eval) by AJBcoding
 
 ## Contributors

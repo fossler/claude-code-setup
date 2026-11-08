@@ -162,8 +162,7 @@ if jq -e '.statusLine' "$CLAUDE_DIR/settings.json" > /dev/null 2>&1; then
         fail "statusLine must be object, got: $statusline_type"
     fi
 else
-    # statusLine might not be configured if npx is not available
-    pass "statusLine skipped (npx not available)"
+    fail "statusLine not configured although accepted"
 fi
 
 # ============================================
@@ -200,30 +199,16 @@ else
 fi
 
 # ============================================
-# ccstatusline E2E test (if npx available)
+# Bundled status line script E2E test
 # ============================================
 
-scenario "ccstatusline E2E test"
+scenario "statusline.sh E2E test"
 
-if command -v npx &>/dev/null; then
-    # Test that ccstatusline can be executed non-interactively
-    # The -y flag should skip any npm prompts
-    output=$(echo '{}' | npx -y ccstatusline@latest 2>&1) || true
-
-    if [[ -n "$output" ]]; then
-        pass "ccstatusline executes with empty JSON input"
-        # Output should contain ANSI codes or text (statusline)
-        if [[ "$output" == *$'\033'* ]] || [[ "$output" == *"["* ]]; then
-            pass "ccstatusline produces formatted output"
-        else
-            # Even plain text is acceptable
-            pass "ccstatusline produces output: ${output:0:50}..."
-        fi
-    else
-        fail "ccstatusline produced no output"
-    fi
+output=$(echo '{}' | "$PROJECT_DIR/statusline/statusline.sh" 2>&1) || true
+if [[ -n "$output" ]]; then
+    pass "statusline.sh produces output with empty JSON input"
 else
-    pass "npx not available, skipping ccstatusline E2E test"
+    fail "statusline.sh produced no output"
 fi
 
 print_summary

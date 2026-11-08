@@ -142,6 +142,9 @@ do_update() {
     build_claude_md
     print_success "CLAUDE.md rebuilt"
 
+    # Status line: migrate ccstatusline, refresh the bundled script (custom ones untouched)
+    update_statusline
+
     # Configure hooks (for users updating from pre-v33)
     print_header "Hooks"
     configure_hooks

@@ -12,10 +12,10 @@ Make sure you have [Claude Code](https://claude.ai/download) installed and worki
 |-------------|--------|-------|
 | Claude Code | Required | The CLI tool this setup extends |
 | macOS, Linux, or WSL | Required | All three platforms are supported |
-| Node.js | Optional | Needed for the context status line (recommended) |
+| Node.js | Optional | Needed for MCP servers that run via `npx` |
 
 <Callout type="info">
-Don't have Node.js? The installer works fine without it - you'll just skip the status line step. You can always add it later.
+Don't have Node.js? The installer works fine without it - you just can't use the MCP servers that run via `npx`. You can always add it later.
 </Callout>
 
 ## Running the Installer
@@ -223,7 +223,7 @@ Installing MCP Servers
 ```
 Status Line
 
-ccstatusline shows context usage in the status bar (e.g., Ctx: 21.9%)
+The status line shows model, directory, git branch and context usage (e.g., Ctx: 42k (21%))
 Useful to know when to run /wrapup
 
 Enable context status line? (Y/n):
@@ -232,17 +232,20 @@ Enable context status line? (Y/n):
 **What is this?** The status line shows useful information at the bottom of your Claude Code session:
 
 ```
-opus | 1.2k | 128k | Ctx: 21.9% | main | +2
+Opus 5.5 | you@laptop ~/projects/my-app (main) +12,-3 | Total: 2.4M | Ctx: 42k (21%)
 ```
 
 | Segment | Meaning |
 |---------|---------|
-| `opus` | Current Claude model |
-| `1.2k` | Tokens used in this session |
-| `128k` | Maximum context window |
-| `Ctx: 21.9%` | How full your context is |
-| `main` | Current git branch |
-| `+2` | Uncommitted changes |
+| `Opus 5.5` | Current Claude model |
+| `you@laptop` | User and host |
+| `~/projects/my-app` | Current working directory |
+| `(main)` | Current git branch (hidden outside a git repo) |
+| `+12,-3` | Uncommitted line changes, staged and unstaged (hidden when there are none) |
+| `Total: 2.4M` | All tokens of the session (input + output + cache) |
+| `Ctx: 42k (21%)` | Tokens in the context window and how full it is (yellow from 60%, red from 80%) |
+
+The script is installed to `~/.claude/statusline.sh` and needs only `jq` and `git`.
 
 **Why it matters:** The context percentage tells you when it's time to save your work. When it reaches ~80%, run `/wrapup` to document your progress, then `/clear` to start fresh. This prevents Claude from losing track of important decisions.
 

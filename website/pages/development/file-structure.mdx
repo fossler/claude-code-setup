@@ -92,11 +92,15 @@ Claude Code settings including status line:
 ```json
 {
   "statusLine": {
-    "enabled": true,
-    "command": ["npx", "-y", "ccstatusline"]
+    "type": "command",
+    "command": "/Users/you/.claude/statusline.sh"
   }
 }
 ```
+
+### ~/.claude/statusline.sh
+
+Status line script (from `statusline/statusline.sh` in this repo). Prints model, user, directory, git branch and changes, session tokens and context usage. Refreshed by `--update` while `statusLine` points at it.
 
 ### Project CLAUDE.md
 

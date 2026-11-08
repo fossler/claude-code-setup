@@ -14,7 +14,6 @@ CUSTOM_DIR="${CUSTOM_DIR:-$CLAUDE_DIR/custom}"
 INSTALLED_FILE="${INSTALLED_FILE:-$CLAUDE_DIR/installed.json}"
 MCP_CONFIG_FILE="${MCP_CONFIG_FILE:-$HOME/.claude.json}"
 CONTENT_VERSION_FILE="${CONTENT_VERSION_FILE:-$SCRIPT_DIR/templates/VERSION}"
-CCSTATUS_CONFIG_DIR="${CCSTATUS_CONFIG_DIR:-$HOME/.config/ccstatusline}"
 
 # Non-interactive mode (--yes flag)
 YES_MODE=false

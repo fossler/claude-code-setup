@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Content Versions
 
+- **v56**: Bundled status line script replaces ccstatusline
+  - New `statusline/statusline.sh` (bash + jq), installed to `~/.claude/statusline.sh`: `Model | user@host ~/path (branch) +ins,-del | Total: 2.4M | Ctx: 86.2k (43%)`, context colored yellow from 60% and red from 80%
+  - Same fields as the previous ccstatusline default (model, total tokens, context tokens and percentage, git branch and changes), plus user, host and directory
+  - Context from Claude Code's `context_window` data, with a transcript fallback for older Claude Code versions; session total summed over the transcript and cached by file size
+  - Status line no longer needs Node.js/npx; no `~/.config/ccstatusline` config is created
+  - ccstatusline removed: an existing ccstatusline `statusLine` is migrated to the script on `--update`/`--add`; `~/.config/ccstatusline` is no longer used and can be deleted
+  - `--update` refreshes the script when `statusLine` points at it; custom status lines are left untouched
 - **v55**: Template version check script + skill cleanups
   - New `skills/claude-code-setup/scripts/check-template-version.sh`: bash script for project template version comparison (exit 0 = match, 1 = mismatch → trigger `/migrate-project-template`, 2 = no CLAUDE.md)
   - `/claude-code-setup` skill: added template version check step using the new script
